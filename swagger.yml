@@ -1,0 +1,81 @@
+openapi: 3.0.3
+info:
+  title: FFMPEG Microservice
+  description: |-
+    FFMPEG file conversion microservice API documentation
+  contact:
+    email: mahyarkarimi@rocketmail.com
+  license:
+    name: MIT
+    url: https://opensource.org/license/mit/
+  version: 0.1.0
+servers:
+  - url: https:///api/v3
+paths:
+  /convert:
+    post:
+      summary: Convert a media file (video or audio) and get response as stream
+      description: Convert a media file and return as stream
+      operationId: covert
+      requestBody:
+        description: File to upload for conversion
+        content:
+          form/multipart-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+            encoding: # The same level as schema
+              file: # Property name (see above)
+                contentType: audio/*, video/*
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '413':
+          description: file to convert is larger than upload size limit
+        '422':
+          description: Unprocessable entity when either file in body or action in query parameters is not available
+  /convert-file:
+    post:
+      summary: Convert a media file (video or audio) and get response as file
+      description: Convert a media file and return as file
+      operationId: covert_file
+      requestBody:
+        description: File to upload for conversion
+        content:
+          form/multipart-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+            encoding: # The same level as schema
+              file: # Property name (see above)
+                contentType: audio/*, video/*
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            audio/*:
+              schema:
+                type: string
+                format: binary
+            video/*:
+              schema:
+                type: string
+                format: binary
+        '413':
+          description: file to convert is larger than upload size limit
+        '422':
+          description: Unprocessable entity when either file in body or action in query parameters is not available
+
