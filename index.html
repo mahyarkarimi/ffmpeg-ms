@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css"
+        href="https://github.com/swagger-api/swagger-ui/blob/master/dist/swagger-ui.css">
+</head>
+
+<body>
+    <script>
+        window.onload = function () {
+            const ui = SwaggerUIBundle({
+                url: "https://github.com/mahyarkarimi/ffmpeg-ms/blob/main/swagger.json",
+                dom_id: '#swagger-ui',
+                presets: [
+                    SwaggerUIBundle.presets.apis,
+                    SwaggerUIStandalonePreset
+                ]
+            })
+
+            window.ui = ui
+        }
+    </script>
+    <script src="https://github.com/swagger-api/swagger-ui/blob/master/dist/swagger-ui-bundle.js"></script>
+    <script src="https://github.com/swagger-api/swagger-ui/blob/master/dist/swagger-ui-standalone-preset.js"></script>
+</body>
+
+</html>
