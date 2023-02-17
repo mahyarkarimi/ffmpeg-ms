@@ -61,8 +61,7 @@ htpasswd -B -cb .htpasswd <username> <password>
 
 <hr />
 
-<iframe>
-<body>
+<div>
 <link rel="stylesheet" type="text/css" href="https://github.com/swagger-api/swagger-ui/blob/master/dist/swagger-ui.css">
 
 <script>
@@ -81,8 +80,7 @@ window.onload = function() {
 </script>
 <script src="https://github.com/swagger-api/swagger-ui/blob/master/dist/swagger-ui-bundle.js" ></script>
 <script src="https://github.com/swagger-api/swagger-ui/blob/master/dist/swagger-ui-standalone-preset.js" ></script>
-</body>
-</iframe>
+</div>
 
 
 FFMPEG file conversion microservice API documentation
