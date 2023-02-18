@@ -73,13 +73,22 @@ mahyarkarimi@rocketmail.com
 ### /convert
 
 #### POST
-##### Summary:
+
+##### Summary
 
 Convert a media file (video or audio) and get response as stream
 
-##### Description:
+##### Description
 
 Convert a media file and return as stream
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| input_options | query |  | No | string |
+| output_options | query |  | Yes | string |
+| buffer_size | query |  | No | integer |
 
 ##### Responses
 
@@ -92,13 +101,21 @@ Convert a media file and return as stream
 ### /convert-file
 
 #### POST
-##### Summary:
+
+##### Summary
 
 Convert a media file (video or audio) and get response as file
 
-##### Description:
+##### Description
 
 Convert a media file and return as file
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| input_options | query |  | No | string |
+| output_options | query |  | Yes | string |
 
 ##### Responses
 
