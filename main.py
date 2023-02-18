@@ -41,9 +41,9 @@ if os.path.exists('.htpasswd'):
 
 @app.post('/convert')
 @limiter.limit("5/minute")
-def convert(request: Request, action: str, file: UploadFile = File(...), buffer_size: int=524288):
+def convert(request: Request, output_options: str, file: UploadFile = File(...), input_options: str = '', buffer_size: int=524288):
     try:
-        command = f"ffmpeg -loglevel quiet -i /dev/stdin {action} -"
+        command = f"ffmpeg -loglevel error {input_options} -i /dev/stdin {output_options} -"
         ffmpeg_cmd = subprocess.Popen(
             shlex.split(command),
             stdin=file.file,
@@ -74,11 +74,11 @@ def convert(request: Request, action: str, file: UploadFile = File(...), buffer_
 
 @app.post('/convert-file')
 @limiter.limit("5/minute")
-def convert(request: Request, action: str, file: UploadFile = File(...)):
+def convert(request: Request, output_options: str, file: UploadFile = File(...), input_options: str = ''):
     try:
-        suffix = action.split(' ')[action.split(' ').index('-f') + 1]
+        suffix = output_options.split(' ')[output_options.split(' ').index('-f') + 1]
         temp_df, temp_path = tempfile.mkstemp(suffix, prefix=str(uuid.uuid4()))
-        command = f"ffmpeg -loglevel quiet -y -i /dev/stdin {action} {temp_path}"
+        command = f"ffmpeg -loglevel error -y {input_options} -i /dev/stdin {output_options} {temp_path}"
         ffmpeg_cmd = subprocess.Popen(
             shlex.split(command),
             stdin=file.file,

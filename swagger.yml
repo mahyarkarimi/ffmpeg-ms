@@ -17,6 +17,24 @@ paths:
       summary: Convert a media file (video or audio) and get response as stream
       description: Convert a media file and return as stream
       operationId: covert
+      parameters:
+        - name: input_options
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: output_options
+          in: query
+          required: true
+          example: -f mp3
+          schema:
+            type: string
+        - name: buffer_size
+          in: query
+          required: false
+          example: 524288
+          schema:
+            type: integer
       requestBody:
         description: File to upload for conversion
         content:
@@ -48,6 +66,18 @@ paths:
       summary: Convert a media file (video or audio) and get response as file
       description: Convert a media file and return as file
       operationId: covert_file
+      parameters:
+        - name: input_options
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: output_options
+          in: query
+          required: true
+          example: -f mp3
+          schema:
+            type: string
       requestBody:
         description: File to upload for conversion
         content:
