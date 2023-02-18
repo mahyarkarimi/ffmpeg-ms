@@ -10,7 +10,7 @@ A microservice for conversion of any sort of media using FFMPEG.
 <hr />
 
 ```bash
-docker run --rm -p 8000:8000 ffmpeg-ms:0.1.0
+docker run --rm -p 8000:8000 mahyarkarimi/ffmpeg-ms:0.1.0-alpine
 ```
 
 ### Deploy with docker-compose.yml
@@ -22,7 +22,7 @@ version: '3'
 
 services:
     api:
-        image: ffmpeg-ms:0.1.0
+        image: mahyarkarimi/ffmpeg-ms:0.1.0-alpine
         restart: unless-stopped
         ports:
             - 8000:8000
