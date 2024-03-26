@@ -9,10 +9,10 @@ A microservice for conversion of any sort of media using FFMPEG.
 
 <hr />
 
-[Dockerhub image link](https://hub.docker.com/repository/docker/mahyarkarimi/ffmpeg-ms/general)
+[Dockerhub image link](https://hub.docker.com/r/mahyarkarimi/ffmpeg-ms)
 
 ```bash
-docker run --rm -p 8000:8000 mahyarkarimi/ffmpeg-ms:0.1.0-alpine
+docker run --rm -p 8000:8000 mahyarkarimi/ffmpeg-ms:0.1.1-alpine
 ```
 
 ### Deploy with docker-compose.yml
@@ -24,7 +24,7 @@ version: '3'
 
 services:
     api:
-        image: mahyarkarimi/ffmpeg-ms:0.1.0-alpine
+        image: mahyarkarimi/ffmpeg-ms:0.1.1-alpine
         restart: unless-stopped
         ports:
             - 8000:8000
@@ -65,7 +65,7 @@ htpasswd -B -cb .htpasswd <username> <password>
 
 FFMPEG file conversion microservice API documentation
 
-## Version: 0.1.0
+## Version: 0.1.1
 
 **Contact information:**  
 mahyarkarimi@rocketmail.com  
